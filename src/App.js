@@ -635,7 +635,20 @@ function App() {
         ))}
       </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', padding: '30px' }}>
+      <div style={{
+
+        display: 'grid',
+
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+
+        gap: '20px',
+
+        justifyContent: 'center',
+
+        padding: '30px'
+
+      }}>
+
         {productos
           .filter(p => p.categoria === categoriaSeleccionada)
           .flatMap((producto, i) =>
