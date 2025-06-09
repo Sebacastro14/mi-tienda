@@ -581,6 +581,7 @@ function App() {
   const categorias = ['clipon', 'metal', 'montado', 'niño', 'acetato'];
 
   return (
+    <>
     <div className="App" style={{ fontFamily: 'Arial', backgroundColor: '#f9f9f9' }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 30px', backgroundColor: '#333', color: 'white' }}>
         <h1>Distribuidora JyB</h1>
@@ -636,19 +637,12 @@ function App() {
       </div>
 
       <div style={{
-
         display: 'grid',
-
         gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-
-        gap: '20px',
-
+        gap: '30px',
         justifyContent: 'center',
-
         padding: '30px'
-
       }}>
-
         {productos
           .filter(p => p.categoria === categoriaSeleccionada)
           .flatMap((producto, i) =>
@@ -677,6 +671,7 @@ function App() {
         </div>
       )}
     </div>
+    </>
   );
 }
 
