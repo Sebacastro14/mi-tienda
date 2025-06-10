@@ -581,9 +581,8 @@ function App() {
   const categorias = ['clipon', 'metal', 'montado', 'niño', 'acetato'];
 
   return (
-    <>
     <div className="App" style={{ fontFamily: 'Arial', backgroundColor: '#f9f9f9' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', padding: '15px 30px', backgroundColor: '#333', color: 'white' }}>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 30px', backgroundColor: '#333', color: 'white' }}>
         <h1>Distribuidora JyB</h1>
         <div style={{ position: 'relative', cursor: 'pointer' }}>
           <span onClick={() => setCarritoAbierto(!carritoAbierto)} style={{ fontSize: '24px' }}>
@@ -598,7 +597,7 @@ function App() {
                 <div>
                   {carrito.map((item, index) => (
                     <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                      <img src={item.imagen} alt={item.modelo} style={{ width: '50px', height: '50px', objectFit: 'cover', marginRight: '10px', padding: '10px 15px', borderRadius: '8px', borderRadius: '5px' }} />
+                      <img src={item.imagen} alt={item.modelo} style={{ width: '50px', height: '50px', objectFit: 'cover', marginRight: '10px', borderRadius: '5px' }} />
                       <div>
                         <p style={{ margin: 0 }}>{item.modelo} - {item.color}</p>
                         <p style={{ margin: 0 }}>Precio: ${item.precio}</p>
@@ -636,18 +635,12 @@ function App() {
         ))}
       </div>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-        gap: '30px',
-        justifyContent: 'center',
-        padding: '30px'
-      }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', padding: '30px' }}>
         {productos
           .filter(p => p.categoria === categoriaSeleccionada)
           .flatMap((producto, i) =>
             producto.colores.map((color, j) => (
-              <div key={i + '-' + j} style={{ border: '1px solid #ddd', borderRadius: '10px', padding: '15px', width: '220px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', alignItems: 'center', backgroundColor: '#fff', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
+              <div key={i + '-' + j} style={{ border: '1px solid #ddd', borderRadius: '10px', padding: '15px', width: '220px', textAlign: 'center', backgroundColor: '#fff', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                 <img
                   src={color.imagen}
                   alt={producto.modelo + ' ' + color.nombre}
@@ -671,7 +664,6 @@ function App() {
         </div>
       )}
     </div>
-    </>
   );
 }
 
